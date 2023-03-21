@@ -1,0 +1,12 @@
+db.getCollection("tataFW_bkp").find({ "cc": { "$gt": 3000 } })==query
+db.getCollection("tataFW_bkp").find({ "make":"MARUTI", "model":"BALENO"  })==projection
+db.getCollection("tataFW_bkp").aggregate([{$sort: { "cc":1 }}])
+db.getCollection("tataFW_bkp").aggregate({$limit:2})
+
+ "$match": { "$or": [{ "cc": { "$gte": 30 } }, { "model": "baleno" }] },
+      "$project": { "_id": 0, "make": 1, "make":"baleno", "model": 1 },
+      "$sort": { "make": 1 },
+      "$skip": 5,
+      "$limit": 5
+
+
